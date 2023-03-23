@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "debug orb_slam3",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/home/ylw/Useful1/ORB_SLAM3/Examples/Monocular/mono_euroc",
+            "args": ["/home/ylw/Useful1/ORB_SLAM3/Vocabulary/ORBvoc.txt",
+                "/home/ylw/Useful1/ORB_SLAM3/Examples/Monocular/EuRoC.yaml",
+                "/home/ylw/Useful1/Data/MH_01_easy",
+                "/home/ylw/Useful1/ORB_SLAM3/Examples/Monocular/EuRoC_TimeStamps/MH01.txt",
+                "dataset-MH01_mono"
+            ],
+            "stopAtEntry": true,
+            "preLaunchTask": "build",//这一步的build与tasks.json中的type名字相同
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "enable pretty printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}

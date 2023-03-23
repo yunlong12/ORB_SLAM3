@@ -1,16 +1,22 @@
 cmake_minimum_required(VERSION 2.8)
 project(ORB_SLAM3)
 
+
+MESSAGE("project source dir: " ${PROJECT_SOURCE_DIR})
+set(CMAKE_VERBOSE_MAKEFILEON ON)
+
 IF(NOT CMAKE_BUILD_TYPE)
-  SET(CMAKE_BUILD_TYPE Release)
+  SET(CMAKE_BUILD_TYPE Debug)
 ENDIF()
 
 MESSAGE("Build type: " ${CMAKE_BUILD_TYPE})
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}  -Wall   -O3")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall   -O3")
-set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -march=native")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -march=native")
+add_compile_options(-std=c++14)
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}  -Wall   -O0")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall   -O0")
+set(CMAKE_C_FLAGS_DEBUG"${CMAKE_C_FLAGS_DEBUG} -march=native")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -march=native")
 
 # Check C++11 or C++0x support
 include(CheckCXXCompilerFlag)
@@ -35,7 +41,7 @@ find_package(OpenCV 4.4)
       message(FATAL_ERROR "OpenCV > 4.4 not found.")
    endif()
 
-MESSAGE("OPENCV VERSION:")
+MESSAGE("OPENCV VERSION HIIIIII:")
 MESSAGE(${OpenCV_VERSION})
 
 find_package(Eigen3 3.1.0 REQUIRED)
